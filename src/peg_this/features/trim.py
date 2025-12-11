@@ -17,7 +17,7 @@ def trim_video(file_path):
     end_time = questionary.text("Enter end time (HH:MM:SS or seconds):").ask()
     if not end_time: return
 
-    output_file = f"{Path(file_path).stem}_trimmed{Path(file_path).suffix}"
+    output_file = f"{Path(file_path).stem}_trimmed_{start_time.replace(':', '')}_{end_time.replace(':', '')}{Path(file_path).suffix}"
     
     input_stream = ffmpeg.input(file_path)
     
